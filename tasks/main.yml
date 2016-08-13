@@ -4,14 +4,6 @@
     name: ntp
     state: installed
 
-- name: Make sure NTP is stopped
-  service:
-    name: ntp
-    state: stopped
-
-- name: Set time once
-  command: ntpd -gq
-
 - name: Start NTP
   service:
     name: ntp
