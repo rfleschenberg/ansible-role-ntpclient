@@ -1,2 +1,18 @@
 ---
-# tasks file for ansible-role-ntpclient
+- name: Make sure NTP is installed
+  apt:
+    name: ntp
+    state: installed
+
+- name: Make sure NTP is stopped
+  service:
+    name: ntp
+    state: stopped
+
+- name: Set time once
+  command: ntpd -gq
+
+- name: Start NTP
+  service:
+    name: ntp
+    state: started
